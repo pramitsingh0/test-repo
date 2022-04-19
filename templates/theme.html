@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% block css %}
+<link rel="stylesheet" href="../css/theme.css" />
+{% endblock %}
+
+{% block content%}
+
+    <div
+      class="d-flex align-items-center justify-content-center theme-calender"
+    >
+      <div class="mx-2">
+        {%if theme_month == 1%}
+        <a href="/theme/{{Months[1]}}" class="active-mounth">January</a>
+        {%elif Months[1]!=None %}
+        <a href="/theme/{{Months[1]}}" class="">January</a>
+        {%else %}
+        <a href="#" class="">January</a>
+        {%endif%} {%if theme_month == 2%}
+        <a href="/theme/{{Months[2]}}" class="active-mounth">Februay</a>
+        {%elif Months[2]!=None %}
+        <a href="/theme/{{Months[2]}}" class="">Februay</a>
+        {%else %}
+        <a href="#" class="">Februay</a>
+        {%endif%} {%if theme_month == 3%}
+        <a href="/theme/{{Months[3]}}" class="active-mounth">March</a>
+        {%elif Months[3]!=None %}
+        <a href="/theme/{{Months[3]}}" class="">March</a>
+        {%else %}
+        <a href="#" class="">March</a>
+        {%endif%} {%if theme_month == 4%}
+        <a href="/theme/{{Months[4]}}" class="active-mounth">April</a>
+        {%elif Months[4]!=None %}
+        <a href="/theme/{{Months[4]}}" class="">April</a>
+        {%else %}
+        <a href="#" class="">April</a>
+        {%endif%} {%if theme_month == 5%}
+        <a href="/theme/{{Months[5]}}" class="active-mounth">May</a>
+        {%elif Months[5]!=None %}
+        <a href="/theme/{{Months[5]}}" class="">May</a>
+        {%else %}
+        <a href="#" class="">May</a>
+        {%endif%} {%if theme_month == 6%}
+        <a href="/theme/{{Months[6]}}" class="active-mounth">June</a>
+        {%elif Months[6]!=None %}
+        <a href="/theme/{{Months[6]}}" class="">June</a>
+        {%else %}
+        <a href="#" class="">June</a>
+        {%endif%} {%if theme_month == 7%}
+        <a href="/theme/{{Months[7]}}" class="active-mounth">July</a>
+        {%elif Months[7]!=None %}
+        <a href="/theme/{{Months[7]}}" class="">July</a>
+        {%else %}
+        <a href="#" class="">July</a>
+        {%endif%} {%if theme_month == 8%}
+        <a href="/theme/{{Months[8]}}" class="active-mounth">August</a>
+        {%elif Months[8]!=None %}
+        <a href="/theme/{{Months[8]}}" class="">August</a>
+        {%else %}
+        <a href="#" class="">August</a>
+        {%endif%} {%if theme_month == 9%}
+        <a href="/theme/{{Months[9]}}" class="active-mounth">September</a>
+        {%elif Months[9]!=None %}
+        <a href="/theme/{{Months[9]}}" class="">September</a>
+        {%else %}
+        <a href="#" class="">September</a>
+        {%endif%} {%if theme_month == 10%}
+        <a href="/theme/{{Months[10]}}" class="active-mounth">October</a>
+        {%elif Months[10]!=None %}
+        <a href="/theme/{{Months[10]}}" class="">October</a>
+        {%else %}
+        <a href="#" class="">October</a>
+        {%endif%} {%if theme_month == 11%}
+        <a href="/theme/{{Months[11]}}" class="active-mounth">November</a>
+        {%elif Months[11]!=None %}
+        <a href="/theme/{{Months[11]}}" class="">November</a>
+        {%else %}
+        <a href="#" class="">November</a>
+        {%endif%} {%if theme_month == 12%}
+        <a href="/theme/{{Months[12]}}" class="active-mounth">December</a>
+        {%elif Months[12]!=None %}
+        <a href="/theme/{{Months[12]}}" class="">December</a>
+        {%else %}
+        <a href="#" class="">December</a>
+        {%endif%}
+      </div>
+    </div>
+
+    <div>
+      <div class="theme">
+        <div class="body-content w-100"> 
+          <h1 class="my-4 text-center">{{theme_post['title']}}</h1>
+        <div class="theme-thumbnail mx-auto">
+          <img src="{{theme_post['guid']}}" alt="" />
+        </div>
+        <script>
+          var support = (function () {
+            if (!window.DOMParser) return false;
+            var parser = new DOMParser();
+            try {
+              parser.parseFromString("x", "text/html");
+            } catch (err) {
+              return false;
+            }
+            return true;
+          })();
+
+          var textToHTML = function (str) {
+            console.log(support);
+            if (support) {
+              var parser = new DOMParser();
+              var doc = parser.parseFromString(str, "text/html");
+              return doc.body.innerHTML;
+            }
+            var dom = document.createElement("div");
+            dom.innerHTML = str;
+            console.log(2);
+            return dom;
+          };
+        </script>
+
+        <div class="theme-body my-5 w-100 text-center ps-5 pe-5" id="divMain">
+          <script>
+            document.getElementById("divMain").innerHTML = textToHTML({{ theme_post.content|tojson }});
+          </script>
+        </div>
+        </div>
+        
+        <div class="sidebar">
+          <div class="theme-comments p-2">
+            <h2 class="my-3 ">DISCUSSSION</h2>
+            <form method="POST">
+              <input
+                name="comment"
+                type="text"
+                placeholder="Enter your Comment"
+              />
+              <button type="submit" class="btn">Send</button>
+            </form>
+
+            {%if count != 0%}
+            <div class="accordion accordion-flush" id="accordionComments">
+              <div class="accordion-item">
+                <p>
+                  <button
+                    class="accordion-button collapsed accordation-btn p-2"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseComment"
+                  >
+                    {{count}} Comments
+                  </button>
+                </p>
+                {%for comment in theme_comments %}
+                <div
+                  id="collapseComment"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionComments"
+                >
+                  <div class="accordion-body mt-5">
+                    <div class="d-flex flex-column">
+                      <div
+                        class="d-flex align-items-center justify-content-between"
+                      >
+                        <div class="comment-avatar d-flex align-items-center">
+                          <img src="{{comment['pp_link']}}" alt="" />
+                          <span class="name">{{comment['comment_author']}}</span>
+                          <span class="date">6 Days ago</span>
+                        </div>
+                        {%if user_id == comment['user_id']%}
+                        <div class="dropdown">
+                          <span
+                            class="dropdown-toggle comment-menu"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <i class="fas fa-ellipsis-v"></i>
+                          </span>
+
+                          <ul
+                            class="dropdown-menu"
+                            aria-labelledby="dropdownMenuButton1"
+                          >
+                            <li>
+                              <a
+                                class="dropdown-item"
+                                href="/delete_comment/{{theme_post['ID']}}/{{comment['comment_ID']}}"
+                                >Delete
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                        {%endif %}
+                      </div>
+
+                      <p class="mt-2">{{comment['comment_content']}}</p>
+                    </div>
+                  </div>
+                </div>
+                {%endfor%}
+              </div>
+            </div>
+            {%endif%}
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "dashboard/base.html" %} {% block css %}
+<link rel="stylesheet" href="../../css/dashboard/hallOffame.css" />
+{% endblock %} {% block content %}
+<div class="container p-4">
+  <h3 class="text-center mt-3">Art of the Year</h3>
+  <!-- Progress bar -->
+  <div class="progressbar">
+    <div class="progress-stick" id="progress-bar">
+      <div class="progress-stick-style"></div>
+    </div>
+
+    <div class="progress-step progress-step-1" data-title="Best Artwork">
+      <i class="fas fa-check i-1"></i>
+    </div>
+    <div class="progress-step progress-step-2" data-title="Nomination">
+      <i class="fas fa-check i-2"></i>
+    </div>
+    <div class="progress-step progress-step-3" data-title="Hall of Fame">
+      <i class="fas fa-check"></i>
+    </div>
+  </div>
+  <div class="halloffame text-center">
+    <img su-media-id="{{post}}" src="{{guid}}" alt="" />
+  </div>
+  <div class="text-center">
+    <button id="confirmyear" class="confirm">Confirm</button>
+  </div>
+</div>
+{% endblock %} {% block js %}
+<script src="../../js/dashboard/hallOffameYear.js"></script>
+{% endblock %}

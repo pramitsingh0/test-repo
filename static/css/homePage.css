@@ -1,0 +1,143 @@
+.homepage-header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.homepage-header-left,
+.homepage-header-right {
+  display: inline-block;
+}
+.homepage-header-left {
+  margin-right: 15px;
+}
+.homepage-search {
+  position: relative;
+  width: 350px;
+}
+.homepage-search .fa-search {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.homepage-search input {
+  padding-left: 35px;
+}
+.homepage-category {
+  width: 180px;
+  margin-right: 10px;
+}
+
+.homepage-card {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px 15px 0 0;
+}
+.homepage-card > img {
+  border-radius: 15px;
+  height: 250px;
+  object-fit: cover;
+  border: none;
+}
+.homepage-card a{
+  text-decoration: none;
+  color: black;
+}
+.card-header {
+  text-align: center;
+  background-color: white;
+  border: none;
+  margin-bottom: -10px;
+}
+.card-avatar {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.card-avatar img {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  border-radius: 50%;
+}
+.card-btn {
+  width: 100%;
+  margin: auto;
+  background-color: rgb(245, 245, 245);
+}
+
+@media (max-width: 991.98px) {
+  .homepage-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .homepage-category {
+    width: 25%;
+  }
+  .homepage-search {
+    width: 60%;
+  }
+  .homepage-header-left {
+    width: 100%;
+    margin-right: 0;
+  }
+  .homepage-navbar-btns > .btn {
+    margin: 1px 3px;
+    padding: 3px 20px;
+  }
+  .homepage-navbar-btns {
+    margin-left: 0px;
+  }
+}
+
+.show {
+  display: block !important;
+}
+.column {
+  display: none;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 5px 15px;
+  margin: 1px 2px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.addBtn {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
+.addBtn > button {
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  background-color: #e74c3c;
+  border: 1px solid rgb(220, 220, 220);
+  color: white;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+
+
+input:focus, a:focus,
+button:focus {
+  border-color: #ced4da !important;
+  -webkit-box-shadow: none;
+  box-shadow: none !important;
+}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% block css %}
+<link rel="stylesheet" href="../css/submitForm.css" />
+{% endblock %} {% block content%}
+
+<div class="container mt-4 mb-4">
+  <div class="upload-container">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <div class="row">
+        <div
+          class="col-lg-6 col-sm-12 d-flex justify-content-center align-items-center"
+        >
+          <div class="drag-area mt-3">
+            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <!-- <header>Drag & Drop to Upload File</header>
+            <span>OR</span> -->
+            <button type="button">Browse File</button>
+          </div>
+          <input type="file" class="drag-input-file" name="file" hidden/>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          <div class="row gy-4 p-5">
+            <div class="col-sm-12">
+              <input
+                type="text"
+                name="title"
+                class="form-title-input"
+                placeholder="Add your title"
+              />
+
+            </div>
+            <div class="col-sm-12 user-name">
+              <img src="../img/user.png" alt="" />
+              <span>User Name</span>
+            </div>
+            <div class="col-sm-6">
+              <select class="form-select" name="category">
+                <option selected disabled style="display: none">
+                  Choose Category
+                </option>
+                <option value="architecture">Architecture</option>
+                <option value="college">College</option>
+                <option value="drawing">Drawing</option>
+                <option value="graphics">Graphics</option>
+                <option value="installation">Installation</option>
+                <option value="Museum's corner">Museum's corner</option>
+                <option value="painting">Painting</option>
+                <option value="poetry">Poetry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <select class="form-select" name="type">
+                {% if type=='image' %}
+                <option disabled style="display: none">Choose Type</option>
+                <option selected value="image">Image</option>
+                <option value="video">Video</option>
+                {% elif type=='video' %}
+                <option disabled style="display: none">Choose Type</option>
+                <option value="image">Image</option>
+                <option selected value="video">Video</option>
+                {% else %}
+                <option selected disabled style="display: none">
+                  Choose Type
+                </option>
+                <option value="image">Image</option>
+                <option value="video">Video</option>
+                {% endif %}
+              </select>
+            </div>
+            <div class="col-sm-12">
+              <textarea
+                name="description"
+                rows="5"
+                placeholder="Tell everyone what is your art about"
+              ></textarea>
+            </div>
+            <div class="col-sm-12">
+              <button type="submit" class="btn form-submit-btn">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../js/submitForm.js"></script>
+
+{% endblock %}

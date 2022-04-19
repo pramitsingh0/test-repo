@@ -1,0 +1,131 @@
+{% extends 'base.html' %} {% block css %}
+<link rel="stylesheet" href="../css/events.css" />
+{% endblock %} {% block content%}
+
+<div class="d-flex align-items-end p-3 pt-5 events-title">
+  <h1 class="text-white">Events</h1>
+</div>
+
+<nav class="navbar navbar-light bg-light m-2">
+  <div class="d-flex px-2" id="btn-container">
+    <a class="nav-link active-link" href="#" onclick="filterSelection('all')">All</a>
+    <a class="nav-link" href="#" onclick="filterSelection('lectures')">Lectures</a>
+    <a class="nav-link" href="#" onclick="filterSelection('workshop')">Workshops</a>
+    <a class="nav-link" href="#" onclick="filterSelection('seminars')">Seminars</a>
+    <a class="nav-link" href="#" onclick="filterSelection('talks&tours')">Talks & Tours</a>
+  </div>
+</nav>
+
+<div class="container p-3">
+  <div class="row">
+    {% for event in ev %}
+    <!-- card start -->
+    <div class="col-md-6 all">
+      <div class="card my-3" style="max-width: 768px; margin: auto">
+        <div class="row g-0">
+          <div class="col-md-6 cart-thumbnail">
+            <img src="../img/events_2.jpeg" class="card-img" alt="..." />
+          </div>
+          <div class="col-md-6 pb-5">
+            <div class="card-body">
+              <span class="date">{{event.datestringfrom}} - {{event.datestringto}}</span>
+              <h4 class="card-title">{{event.title}}</h4>
+              <h6>{{event.type}}</h6>
+              <span>{{event.timestringfrom}} TO {{event.timestringto}}</span>
+              <p class="card-text">{{event.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- card end -->
+    <!-- card start -->
+    <div class="col-md-6 lectures">
+      <div class="card my-3" style="max-width: 768px; margin: auto">
+        <div class="row g-0">
+          <div class="col-md-6 cart-thumbnail">
+            <img src="../img/events_2.jpeg" class="card-img" alt="..." />
+          </div>
+          <div class="col-md-6 pb-5">
+            <div class="card-body">
+              <span class="date">{{event.datestringfrom}} - {{event.datestringto}}</span>
+              <h4 class="card-title">{{event.title}}</h4>
+              <h6>{{event.type}}</h6>
+              <span>{{event.timestringfrom}} TO {{event.timestringto}}</span>
+              <p class="card-text">{{event.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- card end -->
+    <!-- card start -->
+    <div class="col-md-6">
+      <div class="card my-3" style="max-width: 768px; margin: auto">
+        <div class="row g-0">
+          <div class="col-md-6 cart-thumbnail">
+            <img src="../img/events_2.jpeg" class="card-img" alt="..." />
+          </div>
+          <div class="col-md-6 pb-5">
+            <div class="card-body">
+              <span class="date">{{event.datestringfrom}} - {{event.datestringto}}</span>
+              <h4 class="card-title">{{event.title}}</h4>
+              <h6>{{event.type}}</h6>
+              <span>{{event.timestringfrom}} TO {{event.timestringto}}</span>
+              <p class="card-text">{{event.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- card end -->
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  filterSelection('all');
+  function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName('column');
+    if (c == 'all') c = '';
+    for (i = 0; i < x.length; i++) {
+      RemoveClass(x[i], 'show');
+      if (x[i].className.indexOf(c) > -1) AddClass(x[i], 'show');
+    }
+  }
+
+  function AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(' ');
+    arr2 = name.split(' ');
+    for (i = 0; i < arr2.length; i++) {
+      if (arr1.indexOf(arr2[i]) == -1) {
+        element.className += ' ' + arr2[i];
+      }
+    }
+  }
+
+  function RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(' ');
+    arr2 = name.split(' ');
+    for (i = 0; i < arr2.length; i++) {
+      while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);
+      }
+    }
+    element.className = arr1.join(' ');
+  }
+
+  var btnContainer = document.getElementById('btn-container');
+  var btns = btnContainer.getElementsByClassName('nav-link');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function () {
+      var current = document.getElementsByClassName('active-link');
+      current[0].className = current[0].className.replace(' active-link', '');
+      this.className += ' active-link';
+    });
+  }
+</script>
+{% endblock%}

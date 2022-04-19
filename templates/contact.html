@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block css %}
+<link rel="stylesheet" href="../css/contact.css" />
+<link rel="stylesheet" href="../css/login.css" />
+
+{% endblock %} {% block content%}
+
+<div class="container" id="container">
+  <div class="form-container login-account-container">
+    <form action="/museum/createAccount" method="POST">
+      <h1>Let's have a talk</h1>
+      <span>We are always Here</span>
+      <input style="margin-top: 2rem;" type="text" placeholder="Name" name = "username" />
+      <input type="email" placeholder="Email" name = "email" />
+      <input type="text" placeholder="Subject" name = "Subject"/>
+      <input type="text" placeholder="Your Message" name = "Your Message"/>
+      <button style="margin-top: 2rem;" type="submit" class="login-button">Submit</button>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-right">
+        <h1>Contact Us</h1>
+        <p>Find new ideas to try</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

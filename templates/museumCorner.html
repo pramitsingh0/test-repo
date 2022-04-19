@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block css %}
+<link rel="stylesheet" href="../css/museumCorner.css" />
+{% endblock %}
+
+{% block content%}
+
+    <div class="container-lg my-5">
+      <div class="row g-5 ">
+          <div class="col-md-6  ">
+            <div class="museum-card hov">
+              <div class="d-flex">
+                <div class="museum-img">
+                  <img src="{{ museum_details['pp_link'] }}" alt="" />
+                </div>
+                <div class="museum-content d-flex flex-column p-2">
+                  <div class="d-flex align-items-center">
+                   <a href="profile/{{ museum_details['ID'] }}"> <h4 class="mt-2">{{ museum_details['display_name'] }}</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="museum-footer">
+                <a href="">Follow</a>
+                <p>|</p>
+                <a href="">Unfollow</a>
+                <div></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6  ">
+            <div class="museum-card hov">
+              <div class="d-flex">
+                <div class="museum-img">
+                  <img src="{{ museum_details['pp_link'] }}" alt="" />
+                </div>
+                <div class="museum-content d-flex flex-column p-2">
+                  <div class="d-flex align-items-center">
+                   <a href="profile/{{ museum_details['ID'] }}"> <h4 class="mt-2">{{ museum_details['display_name'] }}</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="museum-footer">
+                <a href="">Follow</a>
+                <p>|</p>
+                <a href="">Unfollow</a>
+                <div></div>
+              </div>
+            </div>
+          </div>
+         
+          <div class="col-md-6  ">
+            <div class="museum-card hov">
+              <div class="d-flex">
+                <div class="museum-img">
+                  <img src="{{ museum_details['pp_link'] }}" alt="" />
+                </div>
+                <div class="museum-content d-flex flex-column p-2">
+                  <div class="d-flex align-items-center">
+                   <a href="profile/{{ museum_details['ID'] }}"> <h4 class="mt-2">{{ museum_details['display_name'] }}</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="museum-footer">
+                <a href="">Follow</a>
+                <p>|</p>
+                <a href="">Unfollow</a>
+                <div></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6  ">
+            <div class="museum-card hov">
+              <div class="d-flex">
+                <div class="museum-img">
+                  <img src="{{ museum_details['pp_link'] }}" alt="" />
+                </div>
+                <div class="museum-content d-flex flex-column p-2">
+                  <div class="d-flex align-items-center">
+                   <a href="profile/{{ museum_details['ID'] }}"> <h4 class="mt-2">{{ museum_details['display_name'] }}</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="museum-footer">
+                <a href="">Follow</a>
+                <p>|</p>
+                <a href="">Unfollow</a>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    
+{% endblock %}

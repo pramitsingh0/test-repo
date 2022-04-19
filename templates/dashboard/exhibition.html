@@ -1,0 +1,114 @@
+{% extends "dashboard/base.html" %} {% block css %}
+<link rel="stylesheet" href="../../css/dashboard/bestArtwork.css" />
+<link rel="stylesheet" href="../../css/dashboard/style-form.css" />
+<style>
+  .sidebar-items li a {
+    font-size: 16px;
+  }
+</style>
+{% endblock %} {% block content %}
+<div class="container p-4">
+  <center><h2 class="mt-4 mb-4">Add Exhibition</h2></center>
+  <div class="card-body">
+    {% if message %}
+    <div class="alert alert-success alert-dismissible fade show" style="margin-bottom: 35px" role="alert">
+      <strong>Exhibition Added Successfully!!</strong>
+    </div>
+    {% endif %}
+    <form method="POST" action="/dashboard/exhibition">
+      <div class="form-row">
+        <div class="name">Exhibition's title</div>
+        <div class="value">
+          <div class="input-group">
+            <input class="input--style-5" type="text" name="title" required />
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="name">Exhibition's ngma link</div>
+        <div class="value">
+          <div class="input-group">
+            <input class="input--style-5" type="text" name="link" required />
+          </div>
+        </div>
+      </div>
+      <div class="form-row m-b-55">
+        <div class="name">Banner image URL</div>
+        <div class="value">
+          <div class="row row-space">
+            <div class="col-2">
+              <div class="input-group-desc">
+                <input class="input--style-5" type="text" name="url" required />
+                <label class="label--desc">URL</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="name">Exhibition's description</div>
+        <div class="value">
+          <div class="input-group">
+            <textarea class="input--style-5" style="width: 100%; border: none" name="description" required></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="label label--block">Exhibition's Status</label>
+        <div class="p-t-15">
+          <select class="form-select" name="status">
+            <option selected>Select Status</option>
+            <option value=1>Upcoming exhibition</option>
+            <option value=0>Current exhibition </option>
+            <option value=-1>Past exhibition</option>
+          </select>
+        </div>
+      </div>
+      <!-- <div class="form-row m-b-55">
+        <div class="name">Event's Date</div>
+        <div class="value">
+          <div class="row row-space">
+            <div class="col-2">
+              <div class="input-group-desc">
+                <input class="input--style-5" type="date" name="date_from" id="dateInput" required />
+                <label class="label--desc">Date From</label>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="input-group-desc">
+                <input class="input--style-5" type="date" name="date_to" id="dateInput" required />
+                <label class="label--desc">Date To</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row m-b-55">
+        <div class="name">Event's Time</div>
+        <div class="value">
+          <div class="row row-space">
+            <div class="col-2">
+              <div class="input-group-desc">
+                <input class="input--style-5" type="time" value="h:m" name="time_from" id="timeInput" required />
+                <label class="label--desc">Time From</label>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="input-group-desc">
+                <input class="input--style-5" type="time" value="" name="time_to" id="timeInput" required />
+                <label class="label--desc">Time To</label>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <center>
+        <div>
+          <button class="btn btn--radius-2 btn--red" type="submit">Add Exhibition</button>
+        </div>
+      </center>
+    </form>
+  </div>
+</div>
+{% endblock content %}

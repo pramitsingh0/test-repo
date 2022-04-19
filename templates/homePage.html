@@ -1,0 +1,112 @@
+
+{% extends 'base.html' %}
+{% block css %}
+<link rel="stylesheet" href="../css/homePage.css" />
+{% endblock %}
+<script src="../static/js/like.js"></script>
+{% block content%}
+    <div class="homepage-header mt-3">
+      <div
+        class="
+          homepage-header-left
+          d-flex
+          justify-content-center
+          align-items-center
+          mb-2
+        "
+      >
+        <select class="form-select homepage-category">
+          <option selected disabled style="display: none">
+            Choose Category
+          </option>
+          <option value="architecture" >Architecture</option>
+          <option value="college">College</option>
+          <option value="drawing">Drawing</option>
+          <option value="graphics">Graphics</option>
+          <option value="installation">Installation</option>
+          <option value="Museum's corner">Museum's corner</option>
+          <option value="painting">Painting</option>
+          <option value="poetry">Poetry</option>
+          <option value="other">Other</option>
+        </select>
+        <div class="homepage-search">
+          <i class="fa fa-search" style="color: gray;"></i>
+          <input type="text" class="form-control" placeholder="Search..." />
+        </div>
+      </div>
+      <div id="homepageBtnContainer">
+        <button class="btn active" onclick="filterSelection('all')" >
+          Show all
+        </button>
+        <button class="btn" onclick="filterSelection('images')">Images</button>
+        <button class="btn" onclick="filterSelection('videos')">Videos</button>
+      </div>
+    </div>
+
+    <div class="container py-2">
+      <div class="row gx-5" data-masonry='{"percentPosition": true }'>
+        {%for post in posts%}
+        <div class="column col-sm-6 col-md-4 col-lg-3 py-3 videos">
+          
+          <div class="homepage-card" style="">
+            <img
+              src="{{post.guid}}"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-header">
+              <h5><a href="{{url_for('post', post_id= post.ID )}}">{{post.post_title}}</a
+                ></h5>
+            </div>
+            <div class="card-avatar">
+              <img src="{{post.pp_link}}" alt="" />
+              <span><a href="profile/{{ post.post_author }}">{{post.post_author_name }}</a></span>
+            </div>
+            <div class="row py-2 card-btn">
+              <div
+                class="col-6 text-center"
+                style="border-right: 2px solid grey"
+              >
+              <!-- <a href="like/{{ post.post_author }}/{{ post.ID }}"> -->
+                <small>
+                  <i class="fa fa-thumbs-up {% if false %}text-primary{% endif %}" aria-hidden="true" data-postid="{{ post.ID }}" data-authorid="{{ post.post_author }}"></i>
+                  <span id="post_num{{ post.ID }}"> {{ post.likes }} </span>
+                </small>
+              <!-- </a> -->
+              </div>
+              <div class="col-6 text-center">
+                <small
+                ><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;{{ post.views }}</small
+              >
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+
+    <div class="dropdown addBtn" >
+      <button  class="dropdown-toggle" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
+        +
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="/submit_post?category=image">Image</a></li>
+        <li><a class="dropdown-item" href="/submit_post?category=video">Video</a></li>
+      </ul>
+    </div>
+
+
+    <script src="../js/homePage.js"></script>
+    <!-- <script
+      src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+      integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+      crossorigin="anonymous"
+      async
+    ></script> -->
+    <script
+    {% endblock %}
+

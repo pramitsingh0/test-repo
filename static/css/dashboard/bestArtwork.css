@@ -1,0 +1,114 @@
+.progressbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  max-width: 350px;
+  margin: 25px auto;
+}
+.progressbar::before,
+.progress-stick {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  background-color: #dcdcdc;
+  z-index: 0;
+}
+
+.progress-step {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid #dcdcdc;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.progress-step i {
+  color: #dcdcdc;
+}
+
+.progress-step-1 {
+  border: 4px solid #e74c3c;
+}
+
+.progress-step::after {
+  content: attr(data-title);
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  font-size: 0.85rem;
+  color: #666;
+  width: 100px;
+  text-align: center;
+}
+
+.select-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.select-title p {
+  font-size: 20px;
+}
+
+#month {
+  color: #e74c3c;
+  padding: 5px 10px;
+  border: 2px solid #e74c3c;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.img-grid {
+  margin-top: -1rem;
+}
+
+.image-checkbox {
+  width: 100%;
+  max-width: 500px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  box-shadow: 0 0 4px #ccc;
+  outline: 0;
+  margin: 4px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.image-checkbox img {
+  border-radius: 8px;
+  max-height: 230px !important;
+  width: 100%;
+  object-fit: cover;
+}
+
+.image-checkbox-checked {
+  border-color: #e74c3c;
+  background-color: black;
+}
+
+.image-checkbox i {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #e74c3c;
+  display: none;
+}
+.image-checkbox-checked i {
+  display: block;
+}
+.image-checkbox-checked > img {
+  opacity: 0.6;
+}
+#best-artwork-add {
+  background-color: #e74c3c;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: none;
+}

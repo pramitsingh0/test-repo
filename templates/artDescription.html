@@ -1,0 +1,165 @@
+{% extends "base.html" %} {% block css %}
+<link rel="stylesheet" href="../css/artDescription.css" />
+
+{% endblock %} {% block content %}
+<div class="container">
+  <div class="row clearfix mt-3">
+    <div class="col-lg-10 col-md-12 post">
+      <div class="card single-post">
+        <div class="body">
+          <script>
+            var support = (function () {
+              if (!window.DOMParser) return false;
+              var parser = new DOMParser();
+              try {
+                parser.parseFromString("x", "text/html");
+              } catch (err) {
+                return false;
+              }
+              return true;
+            })();
+
+            var textToHTML = function (str) {
+              console.log(support);
+              if (support) {
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(str, "text/html");
+                return doc.body.innerHTML;
+              }
+              var dom = document.createElement("div");
+              dom.innerHTML = str;
+              console.log(2);
+              return dom;
+            };
+          </script>
+          <div class="img-post">
+            <img
+              class="d-block img-fluid"
+              src="{{display_photo}}"
+              alt="First slide"
+            />
+          </div>
+          <h3 class="title">
+            <a href="#">{{ post_page.post_title}}</a>
+          </h3>
+          <h4>{{post_page['display_name']}}</h4>
+          <h6>{{ post_page['post_date']}}</h6>
+          <p id="divMain">
+            <script>
+              document.getElementById("divMain").innerHTML = textToHTML({{post_page['post_content']|tojson }});
+            </script>
+          </p>
+        </div>
+
+        <div class="theme-comments p-5">
+          <h2 class="my-3">DISCUSSSION</h2>
+          <form method="POST">
+            <input
+              name="comment"
+              type="text"
+              placeholder="Enter your Comment"
+            />
+            <button type="submit" class="btn">Send</button>
+          </form>
+
+          {%if count != 0%}
+          <div class="accordion accordion-flush" id="accordionComments">
+            <div class="accordion-item">
+              <p>
+                <button
+                  class="accordion-button collapsed accordation-btn"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseComment"
+                >
+                  {{count}} Comments
+                </button>
+              </p>
+              {%for comment in post_comments %}
+              <div
+                id="collapseComment"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionComments"
+              >
+                <div class="accordion-body mt-5">
+                  <div class="d-flex flex-column">
+                    <div
+                      class="d-flex align-items-center justify-content-between"
+                    >
+                      <div class="comment-avatar d-flex align-items-center">
+                        <img src="{{comment['pp_link']}}" alt="" />
+                        <span class="name">{{comment['comment_author']}}</span>
+                        <span class="date">6 Days ago</span>
+                      </div>
+                      {%if user_id == comment['user_id']%}
+                      <div class="dropdown">
+                        <span
+                          class="dropdown-toggle comment-menu"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          <i class="fas fa-ellipsis-v"></i>
+                        </span>
+
+                        <ul
+                          class="dropdown-menu"
+                          aria-labelledby="dropdownMenuButton1"
+                        >
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="/delete_comment_post/{{comment['comment_post_ID']}}/{{comment['comment_ID']}}"
+                              >Delete
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      {%endif %}
+                    </div>
+
+                    <p class="mt-2">{{comment['comment_content']}}</p>
+                  </div>
+                </div>
+              </div>
+              {%endfor%}
+            </div>
+          </div>
+          {%endif%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-2">
+    <h3 class="text-center my-4" style="font-weight: 600">
+      More from this artist
+    </h3>
+
+    <div class="row gx-5" data-masonry='{"percentPosition": true }'>
+      {% for work in total_work %}
+      <div class="column col-sm-6 col-md-4 col-lg-3 py-3">
+        <div class="homepage-card pb-2">
+          <img src="{{work.guid}}" class="card-img-top" alt="..." />
+          <div class="card-header mt-1">
+            <h5>
+              <a href="{{url_for('post', post_id= work.ID )}}"
+                >{{work['post_title']}}</a
+              >
+            </h5>
+          </div>
+          <div class="card-avatar">
+            <img src="{{post_page['author_pp']}}" />
+            <span
+              ><a href="{{url_for('profile',user_id= work.post_author)}}"
+                >{{post_page['display_name']}}</a
+              ></span
+            >
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endblock %}
+</div>

@@ -1,0 +1,226 @@
+{% extends "base.html" %} {% block css %}
+<link rel="stylesheet" href="../css/blog.css" />
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/blog-new.css" rel="stylesheet">
+{% endblock %} {% block content %}
+<div id="main-content" class="blog-page">
+  <div class="container">
+    <div class="row clearfix">
+      <script>
+        var support = (function () {
+          if (!window.DOMParser) return false;
+          var parser = new DOMParser();
+          try {
+            parser.parseFromString("x", "text/html");
+          } catch (err) {
+            return false;
+          }
+          return true;
+        })();
+
+        var textToHTML = function (str) {
+          console.log(support);
+          if (support) {
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(str, "text/html");
+            return doc.body.innerHTML;
+          }
+          var dom = document.createElement("div");
+          dom.innerHTML = str;
+          console.log(2);
+          return dom;
+        };
+      </script>
+ <section class="section first-section">
+  <div class="container-fluid">
+      <div class="masonry-blog clearfix">
+          <div class="left-side">
+              <div class="masonry-box post-media">
+                   <img src="https://cdn.pixabay.com/photo/2021/10/04/06/28/cactus-6679665__340.jpg" alt="" class="img-fluid">
+                   <div class="shadoweffect">
+                      <div class="shadow-desc">
+                          <div class="blog-meta">
+                              <span class="bg-aqua"><a href="#" title="">Upcomming</a></span>
+                              <h4><a href=#" title="">Blog title </a></h4>
+                              <small><a href="#" title="">17 July, 2001</a></small>
+                              <small><a href="#" title="">by Yash Jain</a></small>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="center-side">
+              <div class="masonry-box post-media">
+                   <img src="https://cdn.pixabay.com/photo/2021/10/04/06/28/cactus-6679665__340.jpg" alt="" class="img-fluid">
+                   <div class="shadoweffect">
+                      <div class="shadow-desc">
+                          <div class="blog-meta">
+                              <span class="bg-aqua"><a href="#" title="">Status</a></span>
+                              <h4><a href=#" title="">Blog Title</a></h4>
+                              <small><a href=#" title="">19 July, 2002</a></small>
+                              <small><a href="#" title="">by Yash jain</a></small>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="right-side hidden-md-down">
+              <div class="masonry-box post-media">
+                   <img src="https://cdn.pixabay.com/photo/2021/10/04/06/28/cactus-6679665__340.jpg" alt="" class="img-fluid">
+                   <div class="shadoweffect">
+                      <div class="shadow-desc">
+                          <div class="blog-meta">
+                              <span class="bg-aqua"><a href="#" title="">Indoor</a></span>
+                              <h4><a href=#" title="">Blog Title</a></h4>
+                              <small><a href=#" title="">5 jine, 2022</a></small>
+                              <small><a href="#" title="">by yash</a></small>
+                          </div>
+                      </div>
+                   </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+  
+      <div id="wrapper">
+        <section class="section wb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">    
+                          {% for post in blog_posts %}
+                            <div class="blog-list clearfix">
+                                <div class="blog-box row">
+                                    <div class="col-md-4">
+                                        <div class="post-media">
+                                            <a href="post/{{ post.ID }}" title="">
+                                                <img src="https://cdn.pixabay.com/photo/2021/12/28/11/38/trees-6899050__340.jpg" alt="" class="img-fluid">
+                                                <div class="hovereffect"></div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="blog-meta big-meta col-md-8">
+                                        <span class="bg-aqua"><a href="#" title="">Status</a></span>
+                                        <h4><a href="post/{{ post.ID }}" title="">{{ post.post_title}}</a></h4>
+                                        <p style="height: 160px;word-wrap: break-word; " id="divMain{{post.ID}}" class="col-12 text-truncate">
+                                          <script>
+                                            document.getElementById("divMain{{post.ID|tojson}}").innerHTML = textToHTML({{post.post_content|tojson }});
+                                          </script>
+                            
+                                          {{ post.post_content|truncate(100)}}
+                                        </p>
+                                        <small><a href="#" title=""><i class="fa fa-eye"></i> 2002</a></small>
+                                        <small><a href=#" title="">{{ post.post_date}}</a></small>
+                                        <small><a href="#" title="">by Yash Jain</a></small>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <hr class="invis" />
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                      <div class="sidebar">
+                          <div class="widget">
+                              <h2 class="widget-title">Recent Posts</h2>
+                              <div class="blog-list-widget">
+                                  <div class="list-group">
+                                      <a href=#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                          <div class="w-100 justify-content-between">
+                                              <img src="https://cdn.pixabay.com/photo/2013/10/27/14/24/black-201432__340.jpg" alt="" class="img-fluid float-left">
+                                              <h5 class="mb-1">Demo Title</h5>
+                                              <small>12 Jan, 2016</small>
+                                          </div>
+                                      </a>
+
+                                      <a href=#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                          <div class="w-100 justify-content-between">
+                                              <img src="https://cdn.pixabay.com/photo/2013/10/27/14/24/black-201432__340.jpg" alt="" class="img-fluid float-left">
+                                              <h5 class="mb-1">Demo Title</h5>
+                                              <small>12 Jan, 2016</small>
+                                          </div>
+                                      </a>
+
+                                      <a href=#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                          <div class="w-100 last-item justify-content-between">
+                                              <img src="https://cdn.pixabay.com/photo/2013/10/27/14/24/black-201432__340.jpg" alt="" class="img-fluid float-left">
+                                              <h5 class="mb-1">Demo Title</h5>
+                                              <small>12 Jan, 2016</small>
+                                          </div>
+                                      </a>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="widget">
+                              <h2 class="widget-title">Advertising</h2>
+                              <div class="banner-spot clearfix">
+                                  <div class="banner-img">
+                                      <img src="https://cdn.pixabay.com/photo/2020/02/29/22/39/demonstration-4891280__340.jpg" alt="" class="img-fluid">
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="widget">
+                              <h2 class="widget-title">Instagram Feed</h2>
+                              <div class="instagram-wrapper clearfix">
+                                  <a href="#"><img src="https://cdn.pixabay.com/photo/2021/01/31/07/26/cables-5966080__340.jpg" alt="" class="img-fluid"></a>
+                                  <a href="#"><img src="https://cdn.pixabay.com/photo/2021/01/31/07/26/cables-5966080__340.jpg" alt="" class="img-fluid"></a>
+                                  <a href="#"><img src="https://cdn.pixabay.com/photo/2021/01/31/07/26/cables-5966080__340.jpg" alt="" class="img-fluid"></a>
+                                  <a href="#"><img src="https://cdn.pixabay.com/photo/2021/01/31/07/26/cables-5966080__340.jpg" alt="" class="img-fluid"></a>
+                                  <a href="#"><img src="https://cdn.pixabay.com/photo/2021/01/31/07/26/cables-5966080__340.jpg" alt="" class="img-fluid"></a>
+                                  <a href="#"><img src="https://cdn.pixabay.com/photo/2021/01/31/07/26/cables-5966080__340.jpg" alt="" class="img-fluid"></a>
+                                  <a href="#"><img src="https://cdn.pixabay.com/photo/2021/01/31/07/26/cables-5966080__340.jpg" alt="" class="img-fluid"></a>
+                                  <a href="#"><img src="https://cdn.pixabay.com/photo/2021/01/31/07/26/cables-5966080__340.jpg" alt="" class="img-fluid"></a>
+                                  <a href="#"><img src="https://cdn.pixabay.com/photo/2021/01/31/07/26/cables-5966080__340.jpg" alt="" class="img-fluid"></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                </div>
+            </div>
+        </section>
+    </div>
+   
+
+     
+    </div>
+    <div class="blog-pagination">
+      <nav aria-label="Page navigation ">
+        <ul class="pagination">
+          <li class="page-item {% if prev <= 0 %}disabled{% endif %}">
+            <a
+              class="page-link"
+              href="/blog?page={{prev}}"
+              aria-label="Previous"
+            >
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {% for page in range(1, pages+1) %} {% if page == current_page %}
+          <li class="page-item active">
+            <a class="page-link" href="/blog?page={{page}}">{{page}}</a>
+          </li>
+          {% else %}
+          <li class="page-item">
+            <a class="page-link" href="/blog?page={{page}}">{{page}}</a>
+          </li>
+          {% endif %} {% endfor %}
+          <li class="page-item {% if next > pages %}disabled{% endif %}">
+            <a class="page-link" href="/blog?page={{next}}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+{% endblock %}

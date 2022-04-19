@@ -1,0 +1,92 @@
+.title{
+    background-color: rgba(231, 76, 60, 0.8);
+    padding: 10px;
+    color: white;
+    text-align: center;
+    height: 8vh;
+    margin: 0;
+}
+.main{
+    display: flex;
+    height: 92vh;
+}
+.left{
+    background-color: rgb(230, 230, 230);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+.left .profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.profile img{
+    width: 30%;
+    border-radius: 70px;
+    display: table;
+    text-align: center;
+    margin: auto;
+}
+.profile .name, .profile .date{
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+}
+.profile .date{
+    margin-top: -15px;
+}
+.profile .desc{
+    font-size: 13px;
+    text-align: center;
+}
+.profile h5{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+.profile .jeevansmriti{
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+  padding: 2px 20px;
+}
+.profile .jeevansmriti:hover{
+    color: white;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+   }
+   
+   .carousel-control-next-icon {
+     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+   }
+
+.virtual-carousel{
+    height: 100%;
+    width: 100% !important;
+    background-color: black;
+    justify-content: center !important;
+    align-items: center;
+    
+}
+.imgbox{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.imgbox img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain ;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

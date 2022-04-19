@@ -1,0 +1,143 @@
+{% extends 'base.html' %} {% block css %}
+<link rel="stylesheet" href="../css/userProfile.css" />
+{% endblock %} {% block content%}
+
+<div class="profile-banner">
+  <img src="{{profile_details['cover_pic']}}" alt="" />
+</div>
+
+<div class="contaner-fluid px-3">
+  <!-- Trigger/Open The Modal -->
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="social_icons">
+        <div class="icon">
+          <div class="icon_svg facebook_icon">
+            <i class="fab fa-facebook-f"></i>
+          </div>
+          <span>Facebook</span>
+        </div>
+        <div class="icon">
+          <div class="icon_svg twitter_icon">
+            <i class="fab fa-twitter"></i>
+          </div>
+
+          <span>Twitter</span>
+        </div>
+        <div class="icon">
+          <div class="icon_svg twitter_icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+
+          <span>Instagram</span>
+        </div>
+        <div class="icon">
+          <div class="icon_svg twitter_icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+
+          <span>WhatsApp</span>
+        </div>
+        <div class="icon">
+          <div class="icon_svg twitter_icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+
+          <span>Copy</span>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="profile row">
+    <div class="col-sm-12 text-center">
+      <img class="profile-img" src="{{ profile_details['pp_link'] }}" alt="" />
+      <h3 class="mt-1" style="font-weight: 700">
+        {{ profile_details['display_name'] }}
+      </h3>
+    </div>
+    <div class="col-sm-12 my-4">
+      <form
+        class="text-center"
+        action="{{url_for('follow',follower_author_id = profile_details['ID'])}}"
+      >
+        {% if is_followed %}
+        <button class="btn unfollow">Unfollow</button>
+        {% else %}
+        <button class="btn follow">Follow</button>
+        {% endif %}<a id="myBtn" class="btn follow">Share</a>
+      </form>
+      <div class="text-center"></div>
+    </div>
+    <div class="col-6 text-end" style="border-right: 2px solid #e74c3c">
+      <div class="followers">
+        <h4>
+          {{ profile_details['follows'] }} &#160;<i
+            class="fa fa-user-o small"
+            aria-hidden="true"
+          ></i>
+        </h4>
+        <h6>Follower(s)</h6>
+      </div>
+    </div>
+    <div class="col-6" style="border-left: 2px solid #e74c3c">
+      <div class="following">
+        <h4>
+          {{ profile_details['following'] }} &#160;<i
+            class="fa fa-user-o small"
+            aria-hidden="true"
+          ></i>
+        </h4>
+        <h6>Following</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="user-posts">
+    <h2>Posts</h2>
+  </div>
+  <div class="row gx-5" data-masonry='{"percentPosition": true }'>
+    {% if (posts is defined) and posts %} {% for post in posts %}
+
+    <div class="column col-sm-6 col-md-4 col-lg-3 py-3">
+      <div class="homepage-card pb-2">
+        <img src="{{ post['guid'] }}" class="card-img-top" alt="..." />
+        <div class="card-header mt-1">
+          <a href="{{url_for('post', post_id= post.ID )}}"
+            ><h5>{{ post['post_title'] }}</h5></a
+          >
+        </div>
+        <div class="card-avatar">
+          <img src="../img/homeBg.png" />
+          <span>{{ post.views }} views</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %} {% else %} No posts to show. {% endif %}
+  </div>
+</div>
+
+<script>
+  var modal = document.getElementById("myModal");
+  var btn = document.getElementById("myBtn");
+  var span = document.getElementsByClassName("close")[0];
+  btn.onclick = function () {
+    modal.style.display = "block";
+  };
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+{% endblock %}

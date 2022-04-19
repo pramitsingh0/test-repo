@@ -1,0 +1,17 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+  <h3 class="text-center mt-5">Select a Artwork of the year </h3>
+  <div class="container py-2">
+    {% for art in pieces_of_art %}
+      <div class="homepage-card">
+        <img src="https://so-ham.in/wp-content/uploads/2022/03/IMG_20211125_161236.jpg" alt="..." />
+        <div class="card-header">
+          <h5>{{art.post_title}}</h5>
+          <p>{{ art['MONTH(post_date)'] }}</p>
+        </div>
+        
+    {% endfor%}
+    
+  </div>
+  
+{% endblock %}

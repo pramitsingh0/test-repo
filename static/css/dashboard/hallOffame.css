@@ -1,0 +1,95 @@
+.progressbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  max-width: 350px;
+  margin: 25px auto;
+}
+.progressbar::before,
+.progress-stick {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  background-color: #dcdcdc;
+  z-index: 0;
+}
+
+.progress-stick-style {
+  background-color: #e74c3c;
+  width: 100%;
+  height: 4px;
+}
+
+.progress-step {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid #dcdcdc;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.progress-step-1,
+.progress-step-2,
+.progress-step-3 {
+  border: 4px solid #e74c3c;
+}
+
+.progress-step i {
+  color: #dcdcdc;
+}
+
+.progress-step .i-1,
+.progress-step .i-2,
+.progress-step .i-3 {
+  color: #e74c3c;
+}
+
+.progress-step::after {
+  content: attr(data-title);
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  font-size: 0.85rem;
+  color: #666;
+  width: 100px;
+  text-align: center;
+}
+
+.halloffame img {
+  margin-top: 35px;
+  width: 70%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.confirm {
+  background-color: #e74c3c;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 20px;
+}
+
+.prev-add-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.prev-add-btn > * {
+  background-color: #e74c3c;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: none;
+  text-decoration: none;
+}
+.prev-add-btn a:hover {
+  color: white;
+}

@@ -1,0 +1,109 @@
+{% extends "dashboard/base.html" %} {% block css %}
+<link rel="stylesheet" href="../../css/dashboard/bestArtwork.css" />
+<link rel="stylesheet" href="../../css/dashboard/style-form.css" />
+<style>
+  .sidebar-items li a {
+    font-size: 16px;
+  }
+</style>
+{% endblock %} {% block content %}
+<div class="container p-4">
+  <center><h2 class="mt-4 mb-4">Add Blogs</h2></center>
+  <div class="card-body">
+    {% if message %}
+    <div class="alert alert-success alert-dismissible fade show" style="margin-bottom: 35px" role="alert">
+      <strong>Blog Added Successfully!!</strong>
+    </div>
+    {% endif %}
+    <form method="POST" action="/dashboard/blog" enctype=multipart/form-data>
+      <div class="form-row">
+        <div class="name">Blog's title</div>
+        <div class="value">
+          <div class="input-group">
+            <input class="input--style-5" type="text" required name="title" />
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="name">Blog's Name</div>
+        <div class="value">
+          <div class="input-group">
+            <input type="text" class="input--style-5" style="width: 100%" required name="name"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="name">Upload Blog's banner image</div>
+        <div class="value">
+          <div class="input-group">
+            <input
+              class="input p-3"
+              style="background-color: #e5e5e5; border-radius: 5px"
+              type="file"
+              name="banner"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="name">Blog's description</div>
+        <div class="value">
+          <div class="input-group">
+            <textarea class="input--style-5" style="width: 100%" name="description" required></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form-row p-t-20">
+        <div class="col">
+          <label class="label label--block">Blog's Status</label>
+          <div class="p-t-15">
+            <select class="form-select" name="blog_status" required style="max-width: 75%;" >
+              <option selected>Select</option>
+              <option value="publish">publish</option>
+              <option value="inherit">inherit</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <label class="label label--block">Blog's Comment status</label>
+          <div class="p-t-15">
+            <select class="form-select" name="comment_status" required style="max-width: 75%;">
+              <option selected>Select</option>
+              <option value="open">open</option>
+              <option value="closed">closed</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-row p-t-20">
+        <div class="col">
+          <label class="label label--block">Blog's Ping status</label>
+          <div class="p-t-15">
+            <select class="form-select" name="ping_status" required style="max-width: 75%;" >
+              <option selected>Select</option>
+              <option value="open">open</option>
+              <option value="closed">closed</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <label class="label label--block">Blog's Type</label>
+          <div class="p-t-15">
+            <select class="form-select" name="blog_type" required  style="max-width: 75%;">
+              <option selected>Select</option>
+              <option value="post">post</option>
+              <option value="revision">revision</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <center>
+        <div>
+          <button class="btn btn--radius-2 btn--red"  type="submit">Add Blog</button>
+        </div>
+      </center>
+    </form>
+  </div>
+</div>
+{% endblock content %}

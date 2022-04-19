@@ -1,0 +1,74 @@
+.events-title {
+    background-color: rgba(231, 76, 60, 0.8);
+    font-family: "Means Web,Georgia,Times,Times New Roman,serif";
+}
+
+.cart-thumbnail>img {
+    height: 22rem;
+    object-fit: cover;
+    border-radius: 0px !important;
+}
+
+.card {
+    border: 1px solid;
+    box-shadow: 2px 2px;
+}
+
+.card-body>.date {
+    font-size: 22px;
+    font-weight: 500;
+    color: #e74c3c;
+}
+
+.card-body>.card-title {
+    margin: 10px 0;
+}
+
+.card-body h6,
+span {
+    color: gray;
+    margin-bottom: 0px;
+}
+
+.card-body .card-text {
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .cart-thumbnail>img {
+        height: 20rem;
+    }
+}
+
+#btn-container>.nav-link {
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+}
+
+#btn-container>.nav-link:hover {
+    color: black;
+}
+
+.active-link {
+    color: white !important;
+    background: linear-gradient(45deg, #f68a28, #ffbf5e);
+}
+
+.active-link:hover {
+    color: white;
+}
+
+.column {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.active-link {
+    color: white !important;
+    background: linear-gradient(45deg, #f68a28, #ffbf5e);
+}

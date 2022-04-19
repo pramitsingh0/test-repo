@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museum Registration</title>
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="form-container login-account-container">
+        <form action="/museum/createAccount" method="POST">
+          <h1>Create Account</h1>
+          <span>Fill details to create a museum account</span>
+          <input type="text" placeholder="Name" name = "username" />
+          <input type="email" placeholder="Email" name = "email" />
+          <input type="text" placeholder="location" name = "location"/>
+          <input type="text" placeholder="Website URL" name = "website"/>
+          <input type="text" placeholder="Contact No." name = "contact"/>
+          <input type="text" placeholder="Password" name = "password"/>
+          <button type="submit" class="login-button">Sign Up</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-right">
+            <h1>So-Ham</h1>
+            <p>Find new ideas to try</p>
+            <button class="ghost" id="signIn">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

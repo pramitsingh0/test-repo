@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block css %}
+<link rel="stylesheet" href="../css/HallOfFame.css" />
+{% endblock %} {% block content%}
+<div class="container p-3">
+  <div class="card my-3" style="max-width: 840px; margin: auto">
+    <div class="card-header">
+      Art Of The Year : {{year}}<span style="color: black"></span>
+    </div>
+    <div class="row g-0">
+      <div class="col-md-6">
+        <img src="{{post['guid']}}" class="card-img-bottom" alt="..." />
+      </div>
+      <div class="col-md-6 pb-5 content">
+        <div class="card-body">
+          <h5 class="card-title">{{post['post_title']}}</h5>
+          <p class="card-text">{{post['post_content']}}</p>
+        </div>
+        <div class="footer">
+          <div class="card-avatar">
+            <img src="{{dp}}" alt="" />
+            <span>{{art_post['user_name']}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

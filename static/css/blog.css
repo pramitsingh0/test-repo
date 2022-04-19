@@ -1,0 +1,112 @@
+body {
+  background-color: #f4f7f6;
+}
+.blog-title {
+  background-color: rgba(231, 76, 60, 0.8);
+  font-family: "Means Web,Georgia,Times,Times New Roman,serif";
+  margin-bottom: 25px;
+}
+.card {
+  background: #fff;
+  border: 0;
+  margin-bottom: 30px;
+  border-radius: 0.55rem;
+  width: 100%;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+}
+.card .body {
+  color: #444;
+  padding: 20px;
+  font-weight: 400;
+}
+
+.single-post .body {
+  padding: 30px;
+}
+
+.single-post .img-post {
+  overflow: hidden;
+  max-height: 300px;
+  margin-bottom: 30px;
+}
+
+.single-post .img-post > img {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+.single-post .title a {
+  color: #242424;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.single-post p {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 300;
+  margin: 0;
+}
+.post {
+  margin: auto;
+}
+.post-footer {
+  text-align: center;
+}
+.post-footer a,
+h6 {
+  color: #e74c3c;
+}
+
+@media (max-width: 640px) {
+  .blog-page .single-post .body {
+    padding: 30px;
+  }
+}
+
+
+.pagination > li > a
+{
+    background-color: white;
+    color: #e74c3c;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #5a5a5a;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #e74c3c !Important;
+    border: solid 1px #e74c3c !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #e74c3c !Important;
+    border: solid 1px #e74c3c;
+}
+.blog-pagination{
+  max-width: 930px;
+  margin: auto;
+}
+
+.blog-pagination > nav > ul{
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+}
+a:focus {
+  border-color: #ced4da !important;
+  -webkit-box-shadow: none;
+  box-shadow: none !important;
+}

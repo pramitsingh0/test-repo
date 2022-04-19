@@ -1,0 +1,30 @@
+.content {
+  position: relative;
+}
+.card-header {
+  font-size: 20px;
+  font-weight: 500;
+  color: #e74c3c;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.card-avatar {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.card-avatar img {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card-img-bottom {
+  object-fit: cover;
+  height: 380px;
+}

@@ -1,0 +1,56 @@
+{% extends "dashboard/base.html" %} {% block css %}
+<link rel="stylesheet" href="../../css/dashboard/bestArtwork.css" />
+{% endblock %} {% block content %}
+<div class="container p-4">
+  <h3 class="text-center mt-3">Hall of Fame</h3>
+  <!-- Progress bar -->
+  <div class="progressbar">
+    <div class="progress-stick" id="progress-bar"></div>
+
+    <div class="progress-step progress-step-1" data-title="Best Artwork">
+      <i class="fas fa-check"></i>
+    </div>
+    <div class="progress-step" data-title="Nomination">
+      <i class="fas fa-check"></i>
+    </div>
+    <div class="progress-step" data-title="Hall of Fame">
+      <i class="fas fa-check"></i>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12 select-title">
+      <p>Select the best Artwork</p>
+      <select id="month">
+        <option value="jan">January</option>
+        <option value="feb">Februay</option>
+        <option value="march">March</option>
+        <option value="april">April</option>
+        <option value="may">May</option>
+        <option value="june">June</option>
+        <option value="july">July</option>
+        <option value="aug">Auguest</option>
+        <option value="sept">September</option>
+        <option value="oct">Octuber</option>
+        <option value="nov">November</option>
+        <option value="dec">December</option>
+      </select>
+    </div>
+    <div class="col-12 row g-3 text-center img-grid">
+      {%for post in posts %}
+      <div class="col-lg-6 col-md-12">
+        <label class="image-checkbox">
+          <img su-media-id="{{post.ID}}" src="{{post['display_photo']}}" />
+          <i class="fa fa-check"></i>
+        </label>
+      </div>
+      {%endfor%}
+    </div>
+    <div class="text-end my-3">
+      <button id="best-artwork-add">Add</button>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block js %}
+<script src="../../js/dashboard/bestArtwork.js"></script>
+{% endblock %}

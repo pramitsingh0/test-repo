@@ -1,0 +1,127 @@
+.d-main {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(245, 245, 245);
+}
+
+/* Navbar */
+
+.d-nav {
+  height: 12vh;
+  flex: 0 0 auto;
+  width: 100%;
+  padding: 10px 10px 5px 10px;
+}
+
+.d-nav > div{
+    background-color: white;
+    padding: 10px 10px 5px 10px;
+}
+
+.d-nav .logo img{
+    height: 40px;
+    object-fit: cover;
+    margin: 0 10px;
+    margin-bottom: 5px;
+}
+
+.d-nav .profile img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+/* Sidebar */
+
+.d-sidebar {
+  height: 88vh;
+  flex: 0 0 auto;
+  width: 230px;
+  padding: 5px 0px 10px 10px;
+}
+
+.d-sidebar .cut{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+.d-sidebar .logout{
+    color: #e74c3c;
+    cursor: pointer;
+}
+
+.d-sidebar > div {
+    background-color: white;
+}
+.d-sidebar >div::-webkit-scrollbar {
+  display: none;
+}
+.sidebar-items li{
+    margin: 5px 20px 5px 0px;
+    padding: 5px;
+    border-radius: 0 5px 5px 0;
+}
+.sidebar-items li a{
+    text-decoration: none;
+    color: black;
+}
+.sidebar-items .active
+    background-color: #e74c3c;
+}
+.sidebar-items .active a{
+    color: white ;
+}
+.logout-container{
+    padding: 10px;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+}
+.d-content {
+  height: 88vh;
+  flex: 1;
+  padding: 5px 10px 10px 10px;
+}
+.d-content > div::-webkit-scrollbar {
+  display: none;
+}
+.d-content > div{
+    background-color: white;
+}
+.d-content .menu{
+    color: #e74c3c;
+    font-size: 28px;
+    margin-left: 10px;
+    margin-bottom: -35px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 768px) {
+  .d-sidebar {
+    width: 230px;
+    position: absolute;
+    top: 12vh;
+    left: -230px;
+    z-index: 999;
+  }
+  .d-sidebar > div{
+    border: 1px solid rgb(245, 245, 245);
+  }
+  .d-sidebar .cut{
+      display: block;
+  }
+  .d-content .menu{
+      display: block;
+  }
+  .d-content {
+    width: 100%;
+  }
+}

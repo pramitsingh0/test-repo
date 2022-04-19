@@ -1,0 +1,31 @@
+
+.main-title p{
+    font-size: 20px;
+    color: rgb(84, 84, 84);
+}
+.profile-pic img{
+    height: 75px;
+    width: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #e74c3c
+}
+.btn-theme{
+    margin-left: 10px;
+    color: white;
+    background-color: #e74c3c;
+}
+.btn-theme:hover{
+    color: white;
+}
+form strong{
+    font-size: 24px;
+}
+input[type='reset']{
+    border:1px solid gray
+}
+a:focus, button:focus, input:focus {
+    border-color: #ced4da !important;
+    -webkit-box-shadow: none;
+    box-shadow: none !important;
+  }
